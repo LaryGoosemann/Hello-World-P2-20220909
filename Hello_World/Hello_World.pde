@@ -2,7 +2,7 @@
 int appWidth, appHeight;
 //
 //declare geometry: square, landscape, portrait
-size(960, 540);
+size(960, 540); //fullScreen()
 String ls="Landscape or Square", p="Portrait", DO="\nDisplay Orientation", instruct="FIX YO SHIT FOO";
 String orientation = (width >= height ) ? ls : p;
 println (DO, orientation);
