@@ -3,7 +3,11 @@ int appWidth, appHeight;
 //
 void setup() {
 //declare geometry: square, landscape, portrait
-size(960, 540); 
+size(960, 540, P3D);
+translate(200, 300, 0); 
+rotateY(0.9);
+noFill();
+box(160);
 //fullScreen()
 //
 appWidth = width;
