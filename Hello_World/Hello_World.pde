@@ -1,5 +1,6 @@
 //Global Variables
 int appWidth, appHeight;
+float centerWidth, centerHeight, xStart, yStart, widthRect, heightRect;
 //
 void setup() {
 //declare geometry: square, landscape, portrait
@@ -22,16 +23,29 @@ String ls="Landscape or Square", p="Portrait", DO="Display Orientation", instruc
 String orientation = (width >= height) ? ls : p;
 println (DO, orientation);
 //
-//if ORIENTATION is wrong... feedback to fix it
-if (orientation==p) println(instruct);
 //Fit CANVAS into Display Monitor
 if (width > displayWidth) appWidth = 0; //CANVAS-width will not fit
 if (height > displayHeight) appHeight = 0; //CANVAS-height will not fit
 if (appWidth != 0 && appHeight != 0) print("Display Geometry is good to go.") ;
 if (appWidth == 0 || appHeight == 0) println("STOP! IS BROKEN!");
-} //End Setup
+} 
 //
-void draw() {} //End Draw
+//if ORIENTATION is wrong... feedback to fix it
+//if (orientation==p) println(instruct);
+//
+//Population
+centerWidth = appWidth * 1/2;
+centerHeight = appHeight * 1/2;
+xStart = centerWidth - ( appWidth * 1/4 );
+yStart = centerHeight - ( appHeight * 1/4 );;
+widthRect = appWidth * 1/2;
+heightRect = appHeight * 1/2;
+//End Setup
+void draw()
+{
+rect(xStart,yStart,widthRect,heightRect);
+}
+//End Draw
 //
 void keyPressed() {} //End keyPressed
 //
