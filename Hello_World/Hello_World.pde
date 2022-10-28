@@ -1,54 +1,49 @@
 //Global Variables
 int appWidth, appHeight;
-float centerWidth, centerHeight, xStart, yStart, widthRect, heightRect;
+float centerX, centerY, xStart, yStart, widthRect, heightRect;
+color
 //
 void setup() {
-//declare geometry: square, landscape, portrait
-size(960, 540, P3D);
-translate(200, 300, 0); 
-rotateY(0.9);
-noFill();
-box(160);
-//fullScreen()
+  //Declaring Display Geometry: landscape, square, portrait
+  size(700, 400); //Able to deploy with fullScreen();
+  //fullScreen();
+  appWidth = width;
+  appHeight = height;
+  //Concatenation: , or + (i.e space)
+  println("\t\t\tWidth="+width, "\tHeight="+height);
+  println("Display Monitor:", "\twidth:"+displayWidth, "\theight:"+displayHeight);
+  //
+  String ls="Landscape or Square", p="portrait", DO="Display Orientation", instruct="Bru, turn your phun";
+  //
+  if ( appWidth < appHeight ) { //Declaring Landscape & square
+    println(instruct);
+  } else {
+    println("Display: Good to Go");
+    if ( appWidth > displayWidth ) { //Fitting CANVAS into Monitor Display
+      appWidth=0;
+      appHeight=0;
+      println("STOP, is broken");
+    } else {
+      //Empty ELSE
+    }
+  }
+  //Population
+  centerX = width * 1/2;
+  centerY = height * 1/2;
+  xStart = centerX - ( width * 1/4 );
+  yStart  = centerY - ( height * 1/4 );
+  widthRect = width * 1/2;
+  heightRect = height * 1/2;
+} //End setup
 //
-appWidth = width;
-appHeight = height;
+void draw() {
+  rect(xStart, yStart, widthRect, heightRect);
+} //End draw
 //
-//Concetanation
-println("Window Width =",width,"\nWindow Height =", height); //key variables
-println("Display Width =", displayWidth,"\nDisplay Height =", displayHeight);
+void keyPressed() {
+} //End keyPressed
 //
-//Ternary Operator
-String ls="Landscape or Square", p="Portrait", DO="Display Orientation", instruct="JACKASS";
-String orientation = (width >= height) ? ls : p;
-println (DO, orientation);
+void mousePressed() {
+} //End mousePressed
 //
-//Fit CANVAS into Display Monitor
-if (width > displayWidth) appWidth = 0; //CANVAS-width will not fit
-if (height > displayHeight) appHeight = 0; //CANVAS-height will not fit
-if (appWidth != 0 && appHeight != 0) print("Display Geometry is good to go.") ;
-if (appWidth == 0 || appHeight == 0) println("STOP! IS BROKEN!");
-} 
-//
-//if ORIENTATION is wrong... feedback to fix it
-//if (orientation==p) println(instruct);
-//
-//Population
-centerWidth = appWidth * 1/2;
-centerHeight = appHeight * 1/2;
-xStart = centerWidth - ( appWidth * 1/4 );
-yStart = centerHeight - ( appHeight * 1/4 );;
-widthRect = appWidth * 1/2;
-heightRect = appHeight * 1/2;
-//End Setup
-void draw()
-{
-rect(xStart,yStart,widthRect,heightRect);
-}
-//End Draw
-//
-void keyPressed() {} //End keyPressed
-//
-void mousePressed() {} //End mousePressed
-//
-//End Main Program
+// End Main Program
